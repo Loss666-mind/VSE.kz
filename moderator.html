@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модератор - VSE</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/vaire.png">
+</head>
+<body>
+  <div class="app">
+    <div class="sidebar">
+      <h2>VSE</h2>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="moderator.html">Модератор</a></li>
+      </ul>
+    </div>
+    <div class="content" id="moderator-content">
+      <h1>Панель модератора</h1>
+      <p>Здесь вы можете управлять пользователями и заказами.</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Проверка доступа для модератора
+    const userEmail = localStorage.getItem('userEmail');
+    if (userEmail !== 'vaire.print@mail.ru') {
+      document.getElementById('moderator-content').innerHTML = '<h1>Доступ запрещён</h1><p>Только модератор с почтой vaire.print@mail.ru может просматривать эту страницу.</p>';
+    }
+  </script>
+</body>
+</html>
